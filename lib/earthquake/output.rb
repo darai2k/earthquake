@@ -110,7 +110,6 @@ module Earthquake
       text = (item["retweeted_status"] ? "RT @#{item["retweeted_status"]["user"]["screen_name"]}: #{item["retweeted_status"]["text"]}" : item["text"]).u
       if config[:raw_text] && /\n/ =~ text
         text.gsub!(/\n/, "\n      " + " " * (item["user"]["screen_name"].length) + (item["_mark"] ? " | " : "| ").c(:info))
-        text << "\n      " + " " * (item["user"]["screen_name"].length)
       else
         text.gsub!(/\s+/, ' ')
       end
